@@ -88,7 +88,7 @@ MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/sitesphere
 JWT_SECRET=your-long-random-secret
 ORIGINS=http://localhost:5173
 OPENROUTER_API_KEY=your-openrouter-key
-OPENROUTER_MODEL=openai/gpt-4o-mini
+OPENROUTER_MODEL="cohere/north-mini-code:free"
 AI_MAX_CONCURRENCY=6
 ```
 
@@ -141,7 +141,7 @@ client/
 ## Known limitations
 
 - Generation takes 30-90 seconds — 11 files at ~5s each with retries is inherently slow, so the client polls for progress.
-- AI code quality depends on the model; GPT-4o-mini and Claude 3.5 Sonnet produce consistently valid JSX, weaker models often need the validator to fix structural problems.
+- AI code quality depends on the model.
 - A failed search/replace revision (e.g. from whitespace drift) is logged and skipped rather than silently corrupting the file.
 - No live collaboration — one user editing a project at a time; concurrent edits would race.
 - Sandpack remounts on every version bump, losing scroll position and cursor state.
